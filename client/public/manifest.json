@@ -2,10 +2,12 @@
   "name": "Pomodoro Timer",
   "description": "",
   "version": "1.0.0",
-  "manifest_version": 2,
-  "browser_action": {
-    "default_popup": "index.html",
-    "default_title": "Pomodoro Timer"
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Pomodoro Timer",
+    "default_popup": "index.html"
   },
-  "permissions": ["<all_urls>", "tabs"]
+  "background": {},
+  "permissions": ["tabs", "webNavigation"],
+  "host_permissions": ["<all_urls>"]
 }
