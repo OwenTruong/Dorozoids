@@ -5,6 +5,7 @@ import {
   Container,
   IconButton,
   styled,
+  TextField,
 } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
 
@@ -139,6 +140,26 @@ function StopButtonGroup() {
   );
 }
 
+function Blocklist() {
+  return (
+    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Typography fontSize={'1.2rem'} textAlign={'left'}>
+        Blocklist Website
+      </Typography>
+      <Box display={'flex'} gap={'20px'} marginBottom={'5px'}>
+        <TextField
+          placeholder="Eg: Youtube.com"
+          sx={{ width: '80%' }}
+          InputProps={{ style: { height: '30px' } }}
+        />
+        <Button variant="contained" sx={{ width: '45px', height: '30px' }}>
+          Add
+        </Button>
+      </Box>
+    </Box>
+  );
+}
+
 export default function Home() {
   const {
     activeSession,
@@ -168,8 +189,8 @@ export default function Home() {
   return (
     <Container
       sx={{
-        width: '350px',
-        height: '475px',
+        width: '375px',
+        height: '560px',
         backgroundColor: '#D4F2E0',
         backgroundImage: `linear-gradient(135deg, #D4F2E0 0%, #7BC599 100%)`,
         padding: '5px',
@@ -185,6 +206,7 @@ export default function Home() {
         <SessionButtonGroup />
         {!activeSession ? <StartButton /> : <StopButtonGroup />}
       </Box>
+      <Blocklist />
     </Container>
   );
 }

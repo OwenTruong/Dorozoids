@@ -104,15 +104,11 @@ function Timer({ timeLeft }: { timeLeft: number[] }) {
               if (e.key === 'Enter' && !activeSession) {
                 // Editing timer is disabled when session is active
 
-                if (secRef.current && minRef.current) {
-                  updateSeconds(
-                    Number(secRef.current.value) +
-                      Number(minRef.current.value) * 60
-                  );
-                  setRemainingTime(
-                    Number(secRef.current.value) +
-                      Number(minRef.current.value) * 60
-                  );
+                if (minRef.current && secRef.current) {
+                  const min = minRef.current.value ?? '0';
+                  const sec = secRef.current.value ?? '0';
+                  updateSeconds(Number(min) * 60 + Number(sec));
+                  setRemainingTime(Number(min) * 60 + Number(sec));
                 } else console.error('secRef and minRef are null');
 
                 // if minute reference does not exist, something is wrong and we should disable the ability to update the max seconds of a timer
