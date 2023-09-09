@@ -1,19 +1,9 @@
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Typography,
-  Container,
-  ThemeProvider,
-  createTheme,
-  IconButton,
-  useTheme,
-} from '@mui/material';
-import SettingsIcon from '@mui/icons-material/Settings';
+import { ThemeProvider, createTheme } from '@mui/material';
 
 // import browser from 'webextension-polyfill';
-import ProgressBar from './ProgressBar';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import Home from './Home/Home';
+import DataContext from './dataContext';
 
 const colorTheme = createTheme({
   palette: {
@@ -28,8 +18,7 @@ const colorTheme = createTheme({
 
 // States: total time, focus state, session on/off
 
-function App() {
-  const theme = useTheme();
+export default function App() {
   const [seconds, setSeconds] = useState([25 * 60, 5 * 60]);
   const [activeSession, setActiveSession] = useState(false);
   const [focusMode, setFocusMode] = useState(true);
@@ -47,115 +36,26 @@ function App() {
     remainingTime % 60,
   ];
 
-  useEffect(() => {
-    if (activeSession !== true) return;
-    const timer = setInterval(() => {
-      // So in this code, we check for if we are on focus or break. If break, we stop everything including the browser tabs and automatically start the timer for focus.
-      setRemainingTime(remainingTime - 1);
-      if (!focusMode && remainingTime < 0) {
-        // switch to focus
-        // reset remaining time to focus' total time
-        // session should still be active of course
-        setFocusMode(true);
-        setRemainingTime(seconds[0]);
-        // TODO: Implement website blocking feature
-      }
-    }, 1000);
-
-    return () => {
-      clearInterval(timer);
-    };
-  });
   return (
     <ThemeProvider theme={colorTheme}>
-      <Container
-        sx={{
-          width: '300px',
-          height: '400px',
-          backgroundColor: theme.palette.primary.light,
+      <DataContext
+        data={{
+          seconds,
+          activeSession,
+          focusMode,
+          remainingTime,
+
+          setSeconds,
+          setActiveSession,
+          setFocusMode,
+          setRemainingTime,
+
+          updateSeconds,
+          timeLeft,
         }}
       >
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-        >
-          <Typography>Pomodoro</Typography>
-          <IconButton>
-            <SettingsIcon />
-          </IconButton>
-        </Box>
-        <Box>
-          <ProgressBar
-            value={40}
-            timeLeft={timeLeft}
-            seconds={seconds}
-            activeSession={activeSession}
-            setRemainingTime={setRemainingTime}
-            updateTimer={updateSeconds}
-          />
-        </Box>
-        <Box>
-          <ButtonGroup>
-            <Button
-              variant="contained"
-              onClick={() => {
-                if (focusMode && !activeSession) {
-                  setFocusMode(false);
-                  setRemainingTime(seconds[1]);
-                }
-              }}
-            >
-              Break
-            </Button>
-            <Button
-              variant="contained"
-              onClick={() => {
-                if (!focusMode && !activeSession) {
-                  setFocusMode(true);
-                  setRemainingTime(seconds[0]);
-                }
-              }}
-            >
-              Focus
-            </Button>
-          </ButtonGroup>
-          {!activeSession ? (
-            <Button
-              variant="contained"
-              onClick={() => {
-                setActiveSession(true);
-              }}
-            >
-              Start
-            </Button>
-          ) : (
-            <ButtonGroup>
-              <Button
-                variant="contained"
-                onClick={() => {
-                  setActiveSession(false);
-                }}
-              >
-                Pause
-              </Button>
-              <Button
-                variant="contained"
-                onClick={() => {
-                  setActiveSession(false);
-                  setRemainingTime(focusMode ? seconds[0] : seconds[1]);
-                }}
-              >
-                Reset
-              </Button>
-            </ButtonGroup>
-          )}
-        </Box>
-      </Container>
+        <Home />
+      </DataContext>
     </ThemeProvider>
   );
 }
-
-export default App;
