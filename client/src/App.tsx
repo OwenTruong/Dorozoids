@@ -1,4 +1,5 @@
-import { Container, ThemeProvider, createTheme } from '@mui/material';
+import { Button, Container, ThemeProvider, createTheme } from '@mui/material';
+import browser from 'webextension-polyfill';
 
 const colorTheme = createTheme({
   palette: {
@@ -21,9 +22,16 @@ const colorTheme = createTheme({
 });
 
 function App() {
+  const openTab = () => {
+    browser.tabs.create({});
+  };
   return (
     <ThemeProvider theme={colorTheme}>
-      <Container></Container>
+      <Container>
+        <Button variant="contained" onClick={openTab}>
+          Open New Tab
+        </Button>
+      </Container>
     </ThemeProvider>
   );
 }
