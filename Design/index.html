@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Roboto:wght@300;400;500;700&family=Rubik:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <title>Pomodoro</title>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="style-focus-light.css">
+</head>
+
+<body>
+  <div class="main">
+    <div class="container">
+      <header>
+        <nav>
+          <p>Pomodoro</p>
+          <div>
+            <a href="#" class="gear"><ion-icon class="settings" name="settings"></ion-icon></a>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <div class="clock">
+          <div class="outline"></div>
+          <div class="time">
+            <span>
+              <input class="min" type="text" placeholder="00" />
+            </span>
+            <span class="sep">:</span>
+            <span>
+              <input class="sec" type="text" placeholder="00" />
+            </span>
+          </div>
+        </div>
+        <div class="buttons">
+          <button class="button break-btn">Break</button>
+          <button class="button focus-btn">Focus</button>
+        </div>
+        <button class="start">Start</button>
+      </main>
+      <footer>
+        <label class="blocklist-label">Blocklist Website</label>
+        <input class="blocklist-input" type="text" placeholder="Eg: Youtube.com" />
+        <buttons class="add">add</buttons>
+      </footer>
+    </div>
+  </div>
+</body>
+
+</html>
