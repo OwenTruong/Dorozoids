@@ -5,7 +5,6 @@ import {
   Typography,
   Container,
   IconButton,
-  useTheme,
 } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
 
@@ -117,7 +116,6 @@ function StopButtonGroup() {
 }
 
 export default function Home() {
-  const theme = useTheme();
   const {
     activeSession,
     setRemainingTime,
@@ -146,9 +144,10 @@ export default function Home() {
   return (
     <Container
       sx={{
-        width: '300px',
-        height: '400px',
-        backgroundColor: theme.palette.primary.light,
+        width: '350px',
+        height: '475px',
+        backgroundColor: '#D4F2E0',
+        backgroundImage: `linear-gradient(135deg, #D4F2E0 0%, #7BC599 100%)`,
       }}
     >
       <HomeNav />

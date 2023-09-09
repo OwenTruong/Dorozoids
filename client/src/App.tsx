@@ -8,10 +8,20 @@ import DataContext from './dataContext';
 const colorTheme = createTheme({
   palette: {
     primary: {
-      light: '#30006B',
-      main: '#1C0049',
-      dark: '#0D0026',
-      contrastText: '#ffffff',
+      light: '#D4F2E0',
+      main: '#7BC599',
+      dark: '#4FA772',
+      contrastText: '#000',
+    },
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          backgroundColor: '#D4F2E0',
+          backgroundImage: `linear-gradient(19deg, #D4F2E0 0%, #7BC599 100%)`,
+        },
+      },
     },
   },
 });
@@ -19,6 +29,7 @@ const colorTheme = createTheme({
 // States: total time, focus state, session on/off
 
 export default function App() {
+  // const breakModeTheme = useContext(breakModeTheme)
   const [seconds, setSeconds] = useState([25 * 60, 5 * 60]);
   const [activeSession, setActiveSession] = useState(false);
   const [focusMode, setFocusMode] = useState(true);
