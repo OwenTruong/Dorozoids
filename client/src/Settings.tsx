@@ -1,5 +1,5 @@
-import { Container, Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Button, Container } from "@mui/material";
+import { useNavigate } from "react-router";
 
 export default function Settings() {
   const navigate = useNavigate();
