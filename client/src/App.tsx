@@ -1,5 +1,8 @@
-import { Button, Container, ThemeProvider, createTheme } from "@mui/material";
-import browser from "webextension-polyfill";
+// import browser from "webextension-polyfill";
+import { Link, MemoryRouter, Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import Settings from "./Settings";
+import { Button, ThemeProvider, createTheme } from "@mui/material";
 
 const colorTheme = createTheme({
   palette: {
@@ -24,9 +27,24 @@ const colorTheme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={colorTheme}>
-      <Container>
-        <Button variant="contained">Open New Tab</Button>
-      </Container>
+      <MemoryRouter>
+        <nav>
+          <ul>
+            <li>
+              <Button variant="contained">
+                <Link to="/">Home</Link>
+              </Button>
+            </li>
+            <li>
+              <Link to="/settings">Settings</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </MemoryRouter>
     </ThemeProvider>
   );
 }

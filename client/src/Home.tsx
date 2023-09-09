@@ -1,5 +1,9 @@
-import React from "react";
+import { Container, Button } from "@mui/material";
 
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <Container>
+      <Button variant="contained">Home Page</Button>
+    </Container>
+  );
 }

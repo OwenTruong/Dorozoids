@@ -7,7 +7,9 @@
     "default_title": "Pomodoro Timer",
     "default_popup": "index.html"
   },
-  "background": {},
+  "background": {
+    "scripts": ["background-scripts.js"]
+  },
   "permissions": ["tabs", "webNavigation"],
   "host_permissions": ["<all_urls>"]
 }
