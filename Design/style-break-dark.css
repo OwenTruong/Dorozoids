@@ -28,7 +28,7 @@ body {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
   font-size: 2rem;
   border-radius: 9px;
-  background-image: linear-gradient(135deg, #44584d, #356e61);
+  background-image: linear-gradient(135deg, #356e61, #44584d);
 }
 
 .container {
