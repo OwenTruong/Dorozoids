@@ -5,12 +5,18 @@ import { useState } from 'react';
 import Home from './Home/Home';
 import DataContext from './dataContext';
 
-const colorTheme = createTheme({
+const breakLightTheme = createTheme({
   palette: {
     primary: {
       light: '#D4F2E0',
       main: '#7BC599',
       dark: '#4FA772',
+      contrastText: '#000',
+    },
+    secondary: {
+      light: '#c4f4df',
+      main: '#c4f4df',
+      dark: '#c4f4df',
       contrastText: '#000',
     },
   },
@@ -48,7 +54,7 @@ export default function App() {
   ];
 
   return (
-    <ThemeProvider theme={colorTheme}>
+    <ThemeProvider theme={breakLightTheme}>
       <DataContext
         data={{
           seconds,

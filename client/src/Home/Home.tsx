@@ -1,10 +1,10 @@
 import {
   Box,
   Button,
-  ButtonGroup,
   Typography,
   Container,
   IconButton,
+  styled,
 } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
 
@@ -13,6 +13,29 @@ import ProgressBar from '../ProgressBar/ProgressBar';
 import { useContext, useEffect } from 'react';
 import { dataContext } from '../dataContext';
 
+const StyledSettings = styled(SettingsIcon)(
+  () => `
+transition: all 200ms;
+font-size: 1.5rem;
+&:hover {
+  transform-origin: center;
+  transform: rotate(30deg);
+}
+`
+);
+
+const BUTTON_STYLE = {
+  width: '100px',
+  height: '30px',
+  margin: '10px',
+};
+
+const START_BUTTON_STYLE = {
+  width: `${100 * 2 + 20}px`,
+  height: '30px',
+  margin: '10px',
+};
+
 function HomeNav() {
   return (
     <Box
@@ -20,29 +43,29 @@ function HomeNav() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        width: '100%',
+        paddingLeft: '15px',
       }}
     >
-      <Typography>Pomodoro</Typography>
+      <Typography variant="h5" fontWeight={'400'}>
+        Pomodoro
+      </Typography>
       <IconButton>
-        <SettingsIcon />
+        <StyledSettings />
       </IconButton>
     </Box>
   );
 }
 
 function Clock() {
-  const { timeLeft, seconds, activeSession, setRemainingTime, updateSeconds } =
+  const { timeLeft, seconds, remainingTime, focusMode } =
     useContext(dataContext);
+  const sec = focusMode ? seconds[0] : seconds[1];
+  const progressInPercentage = ((sec - remainingTime) / sec) * 100;
+
   return (
     <Box>
-      <ProgressBar
-        value={40}
-        timeLeft={timeLeft}
-        seconds={seconds}
-        activeSession={activeSession}
-        setRemainingTime={setRemainingTime}
-        updateTimer={updateSeconds}
-      />
+      <ProgressBar value={progressInPercentage} timeLeft={timeLeft} />
     </Box>
   );
 }
@@ -65,14 +88,14 @@ function SessionButtonGroup() {
     }
   };
   return (
-    <ButtonGroup>
-      <Button variant="contained" onClick={breakPressed}>
+    <Box sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
+      <Button variant="contained" onClick={breakPressed} sx={BUTTON_STYLE}>
         Break
       </Button>
-      <Button variant="contained" onClick={focusPressed}>
+      <Button variant="contained" onClick={focusPressed} sx={BUTTON_STYLE}>
         Focus
       </Button>
-    </ButtonGroup>
+    </Box>
   );
 }
 
@@ -82,6 +105,7 @@ function StartButton() {
   return (
     <Button
       variant="contained"
+      sx={START_BUTTON_STYLE}
       onClick={() => {
         setActiveSession(true);
       }}
@@ -104,14 +128,14 @@ function StopButtonGroup() {
     setRemainingTime(focusMode ? seconds[0] : seconds[1]);
   };
   return (
-    <ButtonGroup>
-      <Button variant="contained" onClick={pausePressed}>
+    <Box>
+      <Button variant="contained" onClick={pausePressed} sx={BUTTON_STYLE}>
         Pause
       </Button>
-      <Button variant="contained" onClick={resetPressed}>
+      <Button variant="contained" onClick={resetPressed} sx={BUTTON_STYLE}>
         Reset
       </Button>
-    </ButtonGroup>
+    </Box>
   );
 }
 
@@ -148,11 +172,16 @@ export default function Home() {
         height: '475px',
         backgroundColor: '#D4F2E0',
         backgroundImage: `linear-gradient(135deg, #D4F2E0 0%, #7BC599 100%)`,
+        padding: '5px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'center',
       }}
     >
       <HomeNav />
       <Clock />
-      <Box>
+      <Box display={'flex'} flexDirection={'column'}>
         <SessionButtonGroup />
         {!activeSession ? <StartButton /> : <StopButtonGroup />}
       </Box>
