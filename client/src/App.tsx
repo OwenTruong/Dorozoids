@@ -1,10 +1,10 @@
 import { Container, Button } from "@mui/material";
-import browser from "webextension-polyfill";
+// import browser from "webextension-polyfill";
+import Home from "./Home";
+import Settings from "./Settings";
 
 function App() {
-  const openTab = () => {
-    browser.tabs.create({});
-  };
+  const openTab = () => {};
 
   return (
     <Container>
