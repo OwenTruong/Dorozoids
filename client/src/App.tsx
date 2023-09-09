@@ -25,9 +25,7 @@ function App() {
   return (
     <ThemeProvider theme={colorTheme}>
       <Container>
-        <Button variant="contained" onClick={openTab}>
-          Open New Tab
-        </Button>
+        <Button variant="contained">Open New Tab</Button>
       </Container>
     </ThemeProvider>
   );
