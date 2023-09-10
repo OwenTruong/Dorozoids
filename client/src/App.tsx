@@ -1,17 +1,19 @@
-import { ThemeProvider, createTheme } from "@mui/material";
-
+import { ThemeProvider, createTheme } from '@mui/material';
 // import browser from 'webextension-polyfill';
-import { useState } from "react";
-import Home from "./Home/Home";
-import DataContext from "./dataContext";
+import { useState } from 'react';
+import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Home from './Home/Home';
+import DataContext from './dataContext';
+import Settings from './Settings/Settings';
 
 const breakLightTheme = createTheme({
   palette: {
     primary: {
-      light: "#D4F2E0",
-      main: "#7BC599",
-      dark: "#4FA772",
-      contrastText: "#000",
+      light: '#D4F2E0',
+      main: '#7BC599',
+      dark: '#4FA772',
+      contrastText: '#000',
     },
     secondary: {
       light: '#c4f4df',
@@ -24,7 +26,7 @@ const breakLightTheme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundColor: "#D4F2E0",
+          backgroundColor: '#D4F2E0',
           backgroundImage: `linear-gradient(19deg, #D4F2E0 0%, #7BC599 100%)`,
         },
       },
@@ -71,7 +73,12 @@ export default function App() {
           timeLeft,
         }}
       >
-        <Home />
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/settings/" element={<Settings />} />
+          </Routes>
+        </Router>
       </DataContext>
     </ThemeProvider>
   );

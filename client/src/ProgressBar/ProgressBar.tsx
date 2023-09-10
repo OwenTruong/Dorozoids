@@ -23,8 +23,6 @@ function Timer({ timeLeft }: { timeLeft: number[] }) {
   const secRef = useRef<HTMLInputElement | null>(null);
   const [editMode, setEditMode] = useState(false);
 
-  console.log(timeLeft);
-
   return (
     <Box
       sx={{
@@ -45,6 +43,7 @@ function Timer({ timeLeft }: { timeLeft: number[] }) {
           component="div"
           color="text.secondary"
           onClick={(e) => {
+            if (activeSession) return;
             if (e.detail === 2) setEditMode(true);
           }}
           fontSize={'2.2rem'}

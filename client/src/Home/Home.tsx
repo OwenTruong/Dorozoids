@@ -13,6 +13,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import { useContext, useEffect } from 'react';
 import { dataContext } from '../dataContext';
+import { useNavigate } from 'react-router-dom';
 
 const StyledSettings = styled(SettingsIcon)(
   () => `
@@ -38,6 +39,7 @@ const START_BUTTON_STYLE = {
 };
 
 function HomeNav() {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -51,7 +53,7 @@ function HomeNav() {
       <Typography variant="h5" fontWeight={'400'}>
         Pomodoro
       </Typography>
-      <IconButton>
+      <IconButton onClick={() => navigate('/settings')}>
         <StyledSettings />
       </IconButton>
     </Box>
