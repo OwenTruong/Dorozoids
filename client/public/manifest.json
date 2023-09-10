@@ -1,0 +1,15 @@
+{
+  "name": "Pomodoro Timer",
+  "description": "",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Pomodoro Timer",
+    "default_popup": "index.html"
+  },
+  "background": {
+    "scripts": ["background-scripts.js"]
+  },
+  "permissions": ["tabs", "webNavigation"],
+  "host_permissions": ["<all_urls>"]
+}
