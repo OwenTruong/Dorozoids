@@ -29,6 +29,12 @@ body {
   font-size: 2rem;
   border-radius: 9px;
   background-image: linear-gradient(135deg, #FFFFFF, #EAEAEA);
+  overflow: scroll;
+}
+
+.secondary-heading {
+  margin: 0 0 20px 0;
+  font-size: 2.5rem;
 }
 
 .container {
@@ -44,6 +50,12 @@ nav {
   display: flex;
   justify-content: space-between;
   font-weight: 400;
+}
+
+.back,
+.log-in {
+  text-decoration: none;
+  color: black;
 }
 
 .gear:link,
@@ -66,6 +78,96 @@ main {
   flex-direction: column;
   align-items: center;
   margin: 0 0 70px 0;
+}
+
+.switch {
+  margin: 2rem 0 0 0;
+
+  background-color: #bcbcbc;
+  width: 32rem;
+  height: 10rem;
+
+  border-radius: 100rem;
+  box-shadow: inset -4px 4px 14px 0 #767676;
+}
+
+.circle {
+  background-color: #f6f6f6;
+  height: 8rem;
+  width: 8rem;
+  cursor: pointer;
+  transform: translate(20%, 12%);
+
+  border-radius: 50%;
+  border: none;
+  box-shadow: 3px 3px 9px 2px #a9a9a9;
+}
+
+.circle::after {
+  content: "light";
+  text-transform: uppercase;
+  position: absolute;
+  font-size: 4rem;
+  color: #fff;
+  font-weight: 500;
+  transform: translate(8rem, -2rem);
+}
+
+.blocked,
+.upload,
+.mode,
+.twilio {
+  margin: 5rem 0 0 0;
+  width: 100%;
+}
+
+.blocked ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.blocked-sites {
+  display: flex;
+  justify-content: space-between;
+}
+
+.blocked-sites a {
+  color: black;
+  font-size: 3rem;
+}
+
+.modes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0 3rem 0;
+}
+
+.modes p {
+  font-size: 2rem;
+}
+
+.modes span {
+  font-size: 1.5rem;
+}
+
+.disclaimer {
+  font-size: 1.5rem;
+
+}
+
+.call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.call label {
+  font-size: 1.6rem;
 }
 
 .clock {
@@ -158,7 +260,7 @@ main {
 .focus-btn {
   background-color: #2E2E2E;
   color: #FFFFFF;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .focus-btn:hover {

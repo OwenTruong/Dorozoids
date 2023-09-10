@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< Updated upstream
+  <link rel="stylesheet" href="style-break-light.css">
+  <title>Settings</title>
+</head>
+
+<!-- 
+
+  1) Theme switcher
+  2) List of blocklisted sites
+  3) Upload your own audio sound
+  4) Auto break and Super Focus modes
+  5) 
+ -->
+
+<body>
+  <div class="main">
+
+=======
+  <link rel="stylesheet" href="style-focus-light.css">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <title>Settings</title>
+</head>
+
+<body>
+  <div class="main">
+    <div class="container">
+      <header>
+        <nav>
+          <a class="back" href="index.html"> &larr; Back</a>
+          <a class="log-in" href="#">Log In</a>
+        </nav>
+      </header>
+      <main>
+        <div class="switch">
+          <button class="circle"></button>
+        </div>
+        <div class="blocked">
+          <h2 class="secondary-heading">Blocklisted Websited</h2>
+          <ul>
+            <li class="blocked-sites">
+              <p>Youtube.com</p><a href="#">
+                <ion-icon name="close"></ion-icon></a>
+            </li>
+            <li class="blocked-sites">
+              <p>Instagram.com</p><a href="#">
+                <ion-icon name="close"></ion-icon>
+              </a>
+            </li>
+            <li class="blocked-sites">
+              <p>Twitter.com</p><a href="#">
+                <ion-icon name="close"></ion-icon></a>
+            </li>
+          </ul>
+        </div>
+        <div class="upload">
+          <h2 class="secondary-heading">Upload an MP3 File</h2>
+          <input type="file" />
+        </div>
+        <div class="mode">
+          <h2 class="secondary-heading">Choose a Mode</h2>
+          <div class="modes">
+            <input type="checkbox" id="auto-break-mode" value="Auto-Break" />
+            <label for="auto-break-mode">
+              <p>Auto Break Mode:</p> <span>Automatically switches to break mode after the timer in
+                focus
+                mode runs out</span>
+            </label>
+          </div>
+          <div class="modes">
+            <input type="checkbox" id="super-focus-mode" value="Super-Focus" />
+            <label for="super-focus-mode">
+              <p>Super Focus Mode:</p> <span>After the timer runs out, the user is asked if wish to extend their
+                time</span>
+            </label>
+          </div>
+          <p class="disclaimer">*Choosing nothing will set the pomodoro to its default settings</p>
+        </div>
+        <div class="twilio">
+          <h2 class="secondary-heading">Twilio</h2>
+          <div class="call">
+            <input type="checkbox" id="twilio" value="yes" />
+            <label for="twilio">Check this box and enter your phone number below if you want to recieve calls to remind
+              you to get back if you're detected being idle</label>
+          </div>
+        </div>
+      </main>
+    </div>
+>>>>>>> Stashed changes
+  </div>
+</body>
+
+</html>

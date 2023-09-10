@@ -24,11 +24,17 @@ body {
 .main {
   margin: 2rem 10rem;
   width: 50rem;
-  height: 78rem;
+  height: 75rem;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
   font-size: 2rem;
   border-radius: 9px;
-  background-image: linear-gradient(135deg, #44584d, #356e61);
+  background-image: linear-gradient(135deg, #356e61, #44584d);
+  overflow: scroll;
+}
+
+.secondary-heading {
+  margin: 0 0 20px 0;
+  font-size: 2.5rem;
 }
 
 .container {
@@ -44,6 +50,12 @@ nav {
   display: flex;
   justify-content: space-between;
   font-weight: 400;
+}
+
+.back,
+.log-in {
+  text-decoration: none;
+  color: white;
 }
 
 .gear:link,
@@ -66,6 +78,96 @@ main {
   flex-direction: column;
   align-items: center;
   margin: 0 0 70px 0;
+}
+
+.switch {
+  margin: 2rem 0 0 0;
+
+  background-color: #2b4a41;
+  width: 32rem;
+  height: 10rem;
+
+  border-radius: 100rem;
+  box-shadow: inset 4px 4px 14px 0 #203831;
+}
+
+.circle {
+  background-color: #375e53;
+  height: 8rem;
+  width: 8rem;
+  cursor: pointer;
+  transform: translate(280%, 13%);
+
+  border-radius: 50%;
+  border: none;
+  box-shadow: -3px 3px 9px 2px rgb(61, 78, 68);
+}
+
+.circle::before {
+  content: "dark";
+  text-transform: uppercase;
+  position: absolute;
+  font-size: 4rem;
+  color: #e6e6e6;
+  font-weight: 500;
+  transform: translate(-18rem, -2rem);
+}
+
+.blocked,
+.upload,
+.mode,
+.twilio {
+  margin: 5rem 0 0 0;
+  width: 100%;
+}
+
+.blocked ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.blocked-sites {
+  display: flex;
+  justify-content: space-between;
+}
+
+.blocked-sites a {
+  color: white;
+  font-size: 3rem;
+}
+
+.modes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0 3rem 0;
+}
+
+.modes p {
+  font-size: 2rem;
+}
+
+.modes span {
+  font-size: 1.5rem;
+}
+
+.disclaimer {
+  font-size: 1.5rem;
+
+}
+
+.call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.call label {
+  font-size: 1.6rem;
 }
 
 .clock {
